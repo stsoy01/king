@@ -1,5 +1,4 @@
 class Player {
-
     keys = {
         w: {
             pressed: false,
