@@ -7,6 +7,13 @@ class Player {
         }
         this.width = 100;
         this.height = 100;
+
+        this.velosity = {
+            x: 0,
+            y: 0
+        }
+
+        this.gravity = 1;
     }
 
     playerDraw() {
@@ -15,8 +22,9 @@ class Player {
     }
 
     playerAnimation() {
+        this.position.y += this.velosity.y
         if (this.position.y < 476) {
-            this.position.y++;
-        }
+            this.velosity.y += this.gravity
+        }else this.velosity.y = 0
     }
 }
