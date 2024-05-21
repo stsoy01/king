@@ -1,5 +1,17 @@
 class Player {
 
+    keys = {
+        w: {
+            pressed: false,
+        },
+        a: {
+            pressed: false,
+        },
+        d: {
+            pressed: false,
+        },
+    }
+
     constructor() {
         this.position = {
             x: 100,
@@ -14,6 +26,7 @@ class Player {
         }
 
         this.gravity = 1;
+
     }
 
     playerDraw() {
@@ -22,9 +35,14 @@ class Player {
     }
 
     playerAnimation() {
-        this.position.y += this.velosity.y
+        this.position.x += this.velosity.x;
+        this.position.y += this.velosity.y;
+
         if (this.position.y < 476) {
             this.velosity.y += this.gravity
-        }else this.velosity.y = 0
+        } else {
+            this.velosity.y = 0
+        }
     }
 }
+
