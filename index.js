@@ -5,13 +5,20 @@ canvas.width = 1024;
 canvas.height = 576;
 
 const player = new Player()
+const backgroundLevel1 = new Sprite({
+    position: {
+        x: 0,
+        y: 0
+    },
+    imageSrc: './img/backgrounds/backgroundLevel1.png'
+})
 
 function animation() {
     window.requestAnimationFrame(animation)
 
     //playground scene
-    c.fillStyle = 'white';
-    c.fillRect(0, 0, canvas.width, canvas.height);  
+    backgroundLevel1.drawTexture()
+    
 
     player.velosity.x = 0;
     if (player.keys.d.pressed) {
