@@ -13,8 +13,8 @@ class Player {
 
     constructor() {
         this.position = {
-            x: 100,
-            y: 100
+            x: 125,
+            y: 200
         }
         this.width = 100;
         this.height = 100;
