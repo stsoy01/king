@@ -6,10 +6,10 @@ canvas.height = 576;
 
 
 const parsedCollisions = collisionsLevel1.parse2D(collisionsLevel1)
-const collisionBlocks = [] = parsedCollisions.createObjectsFrom2d();
+const collisionBlocks =  parsedCollisions.createObjectsFrom2d();
 
 
-const player = new Player()
+const player = new Player({collisionBlocks})
 const backgroundLevel1 = new Sprite({
     position: {
         x: 0,
@@ -38,7 +38,7 @@ function animation() {
     }
 
     player.playerDraw();
-    player.playerAnimation();
+    player.playerMovement();
 }
 
 animation()

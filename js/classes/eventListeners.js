@@ -1,7 +1,8 @@
 window.addEventListener('keydown', (event) => {
     switch (event.key) {
         case 'w':
-            if (player.velosity.y === 0) player.velosity.y = -13;
+            if (event.repeat || player.position.y < 200) return;
+            if (player.velosity.y > 0) player.velosity.y = -13;
             break;
         case 'a':
             player.keys.a.pressed = true;
