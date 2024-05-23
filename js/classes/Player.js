@@ -11,8 +11,8 @@ class Player extends Sprite {
     },
   }
 
-  constructor({ collisionBlocks, imageSrc, frameRate }) {
-    super({ imageSrc, frameRate });
+  constructor({ collisionBlocks, imageSrc, frameRate, animations }) {
+    super({ imageSrc, frameRate, animations });
     this.position = {
       x: 200,
       y: 200
@@ -32,6 +32,15 @@ class Player extends Sprite {
 
     this.collisionBlocks = collisionBlocks;
 
+  }
+
+  switchSprite(spriteName) {
+    if (this.animations[spriteName].image === this.image) return
+
+    this.currentFrame = 0
+    this.image = this.animations[spriteName].image;
+    this.frameRate = this.animations[spriteName].frameRate;
+    this.frameBuffer = this.animations[spriteName].frameBuffer;
   }
 
   playerMovement() {
@@ -128,6 +137,7 @@ class Player extends Sprite {
       this.velosity.y = 0
     }
   }
+
 }
 
 
