@@ -47,17 +47,17 @@ class Player extends Sprite {
 
     switchSprite(spriteName) {
         if (this.animations[spriteName].image === this.image) return
-
         this.currentFrame = 0
         this.image = this.animations[spriteName].image;
         this.frameRate = this.animations[spriteName].frameRate;
         this.frameBuffer = this.animations[spriteName].frameBuffer;
-        this.loop = this.animations[spriteName].loop
+        this.loop = this.animations[spriteName].loop;
+        this.currentAnimation = this.animations[spriteName];
     }
 
     playerMovement() {
         // Player box detection
-        c.fillStyle = 'rgba(0,0,250,0.4)';
+        // c.fillStyle = 'rgba(0,0,250,0.4)';
         // c.fillRect(this.position.x, this.position.y, this.width, this.height);
 
         this.position.x += this.velosity.x;
@@ -66,9 +66,9 @@ class Player extends Sprite {
 
         this.checkForHorizontalCollisions()
 
-        this.position.y += this.velosity.y;
-
         this.gravityApply()
+
+        this.position.y += this.velosity.y;
         this.updateHitBox();
 
         // c.fillRect(
