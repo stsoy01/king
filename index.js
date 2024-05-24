@@ -10,77 +10,87 @@ const collisionBlocks = parsedCollisions.createObjectsFrom2d();
 
 
 const player = new Player({
-  collisionBlocks,
-  imageSrc: './img/king/idle.png',
-  frameRate: 11,
-  animations: {
-    idleRight: {
-      frameRate: 11,
-      frameBuffer: 2,
-      loop: true,
-      imageSrc: './img/king/idle.png',
-    },
-    idleLeft: {
-      frameRate: 11,
-      frameBuffer: 2,
-      loop: true,
-      imageSrc: './img/king/idleLeft.png',
-    },
-    runRight: {
-      frameRate: 8,
-      frameBuffer: 2,
-      loop: true,
-      imageSrc: './img/king/runRight.png',
-    },
-    runLeft: {
-      frameRate: 8,
-      frameBuffer: 2,
-      loop: true,
-      imageSrc: './img/king/runLeft.png',
+    collisionBlocks,
+    imageSrc: './img/king/idle.png',
+    frameRate: 11,
+    animations: {
+        idleRight: {
+            frameRate: 11,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: './img/king/idle.png',
+        },
+        idleLeft: {
+            frameRate: 11,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: './img/king/idleLeft.png',
+        },
+        runRight: {
+            frameRate: 8,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: './img/king/runRight.png',
+        },
+        runLeft: {
+            frameRate: 8,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: './img/king/runLeft.png',
+        },
+        enterDoor: {
+            frameRate: 8,
+            frameBuffer: 6,
+            loop: false,
+            imageSrc: './img/king/enterDoor.png'
+        }
     }
-  }
-})
+});
+
+const doors = [
+    new Sprite({
+        position: {
+            x: 767,
+            y: 270
+        },
+        imageSrc: './img/backgrounds/doorOpen.png',
+        frameRate: 5,
+        frameBuffer: 5,
+        loop: false,
+        autoplay: false,
+    })
+]
 
 const backgroundLevel1 = new Sprite({
-  position: {
-    x: 0,
-    y: 0
-  },
-  imageSrc: './img/backgrounds/backgroundLevel1.png'
+    position: {
+        x: 0,
+        y: 0
+    },
+    imageSrc: './img/backgrounds/backgroundLevel1.png'
 })
 
 
 function animation() {
-  window.requestAnimationFrame(animation)
+    window.requestAnimationFrame(animation)
 
-  //playground scene
-  backgroundLevel1.drawTexture();
-  collisionBlocks.forEach((collisionBlock) => {
-    // collisionBlock.drawBlock()
-  })
+    //playground scene
+    backgroundLevel1.drawTexture();
+    doors.forEach((doors) => {
+        doors.drawTexture();
+    })
 
-  // player.lastDiraction = 'right';
-  player.velosity.x = 0;
 
-  if (player.keys.d.pressed) {
-    player.velosity.x = 5;
-    player.switchSprite('runRight');
-    player.lastDiraction = 'right';
-  }
-  else if (player.keys.a.pressed) {
-    player.velosity.x = -5;
-    player.switchSprite('runLeft');
-    player.lastDiraction = 'left';
-  } else {
-    if (player.lastDiraction === 'left') {
-      player.switchSprite('idleLeft');
-    } else {
-      player.switchSprite('idleRight');
-    }
-  }
+    collisionBlocks.forEach((collisionBlock) => {
+        // collisionBlock.drawBlock()
+    })
 
-  player.drawTexture();
-  player.playerMovement();
+    // player.lastDirection = 'right';
+
+
+    player.handleInput();
+
+    player.drawTexture();
+    player.playerMovement();
 }
 
 animation()
