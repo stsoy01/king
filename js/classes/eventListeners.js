@@ -1,11 +1,14 @@
 window.addEventListener('keydown', (event) => {
+    console.log(level)
+
     if (player.preventInput) return;
 
     switch (event.key) {
         case 'w':
             for (let i = 0; i < doors.length; i++) {
                 const door = doors[i]
-                if (player.hitBox.position.x + player.hitBox.width <= door.position.x + door.width &&
+                if (
+                    player.hitBox.position.x + player.hitBox.width <= door.position.x + door.width &&
                     player.hitBox.position.x >= door.position.x &&
                     player.hitBox.position.y + player.hitBox.height >= door.position.y &&
                     player.hitBox.position.y <= door.position.y + door.heigth) {
@@ -18,7 +21,7 @@ window.addEventListener('keydown', (event) => {
                 }
             }
 
-            if (player.velosity.y > 0) player.velosity.y = -13;
+            if (player.velosity.y === 0) player.velosity.y = -13;
             break;
         case 'a':
             player.keys.a.pressed = true;
