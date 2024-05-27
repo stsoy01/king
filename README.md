@@ -1,5 +1,7 @@
 # king
 
+Download Repository and lucnh index.html 
+
 The 'King' it's my first step in GameDev in which I've tried to understand how developing works
 In this case i love the opportunity to use OOP paradigm.
 
