@@ -1,5 +1,5 @@
+import {doors, player} from '../../index'
 window.addEventListener('keydown', (event) => {
-    console.log(level)
 
     if (player.preventInput) return;
 

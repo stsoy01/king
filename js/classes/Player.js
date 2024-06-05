@@ -1,4 +1,6 @@
-class Player extends Sprite {
+import Sprite from './Sprite'
+import {player} from "../../index";
+export default class Player extends Sprite {
     keys = {
         w: {
             pressed: false,
@@ -180,6 +182,3 @@ class Player extends Sprite {
     }
 
 }
-
-
-

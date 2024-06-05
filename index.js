@@ -1,15 +1,21 @@
+import './styles.css'
+import {collisionsLevel1, collisionsLevel2, collisionsLevel3} from "./js/data/collisions";
+import './js/utils'
+import Player from './js/classes/Player'
+import Sprite from './js/classes/Player'
+
 let canvas = document.querySelector('canvas');
-let c = canvas.getContext('2d');
+export let c = canvas.getContext('2d');
 
 canvas.width = 1024;
 canvas.height = 576;
 
-let parsedCollisions,
-    collisionBlocks,
+export let collisionBlocks;
+export let parsedCollisions,
     background,
     doors
 
-const player = new Player({
+export const player = new Player({
     imageSrc: './img/king/idle.png',
     frameRate: 11,
     animations: {
@@ -48,7 +54,7 @@ const player = new Player({
                     onComplete: () => {
 
                         level++;
-                
+
                         levels[level].init();
                         player.switchSprite('idleRight');
                         player.preventInput = false;

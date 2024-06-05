@@ -1,4 +1,6 @@
-class Sprite {
+import {c} from "../../index";
+
+export default class Sprite {
     constructor({
                     position,
                     imageSrc,

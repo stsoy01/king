@@ -1,3 +1,4 @@
+import CollisionBlock from "./classes/CollisionBlock";
 
 Array.prototype.parse2D = function () {
     const rows = [];

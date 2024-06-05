@@ -1,4 +1,6 @@
-class CollisionBlock {
+import {c} from "../../index";
+
+export default class CollisionBlock {
     constructor({position}) {
         this.position = position;
         this.width = 64;
